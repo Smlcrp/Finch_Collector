@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Ducks{% endblock  %}
+
+{% block content %}
+
+<h1 class="title pt-5">All The Ducks</h1>
+<div class="gallery">
+  {% for duck in ducks %}
+  <a href="">
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-square">
+          <img src="{{duck.image}}" alt="{{duck.name}}" />
+        </figure>
+      </div>
+      <div class="card-header">
+        <p class="card-header-title">{{duck.name}}</p>
+      </div>
+    </div>
+  </a>
+	{% empty %}
+  <article class="message">
+    <div class="message-header">
+      <p>No Ducks Around</p>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% endblock %}
